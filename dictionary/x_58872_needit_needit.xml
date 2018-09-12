@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element label="Hostname" max_length="32" name="hostname" reference="cmdb_ci_network_host" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" display="true" label="State" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="-- New choice --" value="-- New choice --"/>
+                <element inactive_on_update="false" label="Close complete" value="Close complete"/>
+                <element inactive_on_update="false" label="Closed Incomplete" value="Closed Incomplete"/>
+                <element inactive_on_update="false" label="Open" value="Open"/>
+                <element inactive_on_update="false" label="Resolved" value="Resolved"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Payment type" max_length="40" name="u_choice_2" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Payment request with  Invoice" sequence="0" value="payment request with  invoice"/>
+                <element inactive_on_update="false" label="Payment request with no Invoice" sequence="1" value="payment request with no invoice"/>
+                <element inactive_on_update="false" label="Tax calculation" sequence="2" value="tax calculation"/>
+            </choice>
+        </element>
+        <element label="Due date" mandatory="true" max_length="40" name="u_glide_date_1" type="glide_date"/>
+        <element label="New Integer" max_length="40" name="u_integer_2" type="integer"/>
+        <element label="Opened by" mandatory="true" max_length="32" name="u_reference_1" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="hostname"/>
+        </index>
+        <index name="index2">
+            <element name="u_reference_1"/>
+        </index>
+    </element>
+</database>
